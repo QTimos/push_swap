@@ -6,11 +6,11 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 00:13:08 by hdyani            #+#    #+#             */
-/*   Updated: 2025/12/31 19:31:41 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/05 18:38:10 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	record_op(char *op, t_oper **ops)
 {

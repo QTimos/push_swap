@@ -45,31 +45,42 @@ make re         # recompile everything
 ARG="4 67 3 87 23"; ./push_swap $ARG | ./checker $ARG
 
 # Generate random numbers
-ARG=$(shuf -i 1-100 -n 100 | tr '\n' ' ')
-./push_swap $ARG | wc -l                   # This is to count operations
-./push_swap $ARG | ./checker $ARG          # Verify sorting
+ARG=$(shuf -i 1-100 -n 100 | tr '\n' ' '); ./push_swap $ARG | wc -l                   # This is to count operations
+ARG=$(shuf -i 1-100 -n 100 | tr '\n' ' '); ./push_swap $ARG | ./checker $ARG          # Verify sorting
 ```
 
 ### Project Structure
 ```
 push_swap/
 ├── includes/
-│   └── push_swap.h          # Header file with all prototypes
+│   ├── checker_bonus.h      # Header file for the checker bonus program
+│   └── push_swap.h          # Header file for the main program
 ├── src/
-│   ├── input_handle1.c      # Input parsing functions
-│   ├── input_handle2.c      # Input validation and atoll
-│   ├── init_stack.c         # Stack initialization
-│   ├── operations.c         # Basic stack operations (push, swap, rotate)
-│   ├── ops_optimize.c       # Operation optimization
-│   ├── sort_stack.c         # Small stack sorting (2-5 elements)
-│   ├── sort_utils.c         # Sorting utilities
-│   ├── sorted.c             # Check if stack is sorted
-│   ├── push_to_b.c          # Push elements from A to B
-│   ├── push_back.c          # Push elements from B back to A
-│   ├── push_swap.c          # Main program
-│   ├── ft_split.c           # String splitting function
-│   ├── libft_funcs.c        # Basic string functions
-│   └── free.c               # Memory management
+│   ├── mandatory/
+│   │   ├── free.c
+│   │   ├── split_str.c
+│   │   ├── init_stack.c
+│   │   ├── input_handle1.c
+│   │   ├── input_handle2.c
+│   │   ├── libft_funcs.c
+│   │   ├── operations.c
+│   │   ├── ops_optimize.c
+│   │   ├── push_back.c
+│   │   ├── push_swap.c
+│   │   ├── push_to_b.c
+│   │   ├── sort_stack.c
+│   │   ├── sort_utils.c
+│   │   └── sorted.c
+│   └── bonus/
+│       ├── checker_bonus.c
+│       ├── free_bonus.c
+│       ├── ft_split_bonus.c
+│       ├── init_stack_bonus.c
+│       ├── input_handle1_bonus.c
+│       ├── input_handle2_bonus.c
+│       ├── libft_funcs_bonus.c
+│       ├── operations_bonus.c
+│       └── sorted_bonus.c
 ├── Makefile
 └── README.md
 ```

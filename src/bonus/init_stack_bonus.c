@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_stack.c                                       :+:      :+:    :+:   */
+/*   init_stack_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 00:07:24 by hdyani            #+#    #+#             */
-/*   Updated: 2025/12/31 19:34:23 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/06 20:34:48 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/checker_bonus.h"
 
 static t_stack	*create_new_node(int value)
 {
@@ -23,19 +23,6 @@ static t_stack	*create_new_node(int value)
 	node->stack_name = 'a';
 	node->next = NULL;
 	return (node);
-}
-
-int	stack_size(t_stack *s)
-{
-	int	count;
-
-	count = 0;
-	while (s)
-	{
-		s = s->next;
-		count++;
-	}
-	return (count);
 }
 
 static int	flatten_arg(char *arg, char **flat, int *k)
@@ -100,15 +87,14 @@ void	init_stack(t_stack **s, int size, int argc, char **argv)
 	i = 0;
 	node = create_new_node((int)ft_atoll(flat[i]));
 	if (!node)
-	{
-		free_char_arr(flat, size);
-		return ;
-	}
+		return (free_char_arr(flat, size));
 	*s = node;
 	cur = node;
 	while (i < size - 1)
 	{
 		node = create_new_node((int)ft_atoll(flat[++i]));
+		if (!node)
+			return (free_stack(s), free_char_arr(flat, size));
 		cur->next = node;
 		cur = node;
 	}

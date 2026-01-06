@@ -6,16 +6,18 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 08:42:30 by hdyani            #+#    #+#             */
-/*   Updated: 2026/01/01 14:20:54 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/06 20:21:55 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	print_ops(t_oper *ops)
 {
 	t_oper	*cur;
 
+	if (!ops)
+		return ;
 	cur = ops;
 	while (cur)
 	{

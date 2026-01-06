@@ -1,32 +1,61 @@
-CC=cc
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: hdyani <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/01/06 20:49:25 by hdyani            #+#    #+#              #
+#    Updated: 2026/01/06 20:49:26 by hdyani           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-CFLAGS= -Wall -Werror -Wextra
+CC = cc
 
-INCLUDES=includes
+CFLAGS = -Wall -Werror -Wextra
 
-PUSH_SWAP_SRCS= src/free.c src/ft_split.c src/init_stack.c src/input_handle1.c src/input_handle2.c \
-		src/libft_funcs.c src/operations.c src/ops_optimize.c src/push_back.c src/push_swap.c \
-		src/push_to_b.c src/sort_stack.c src/sort_utils.c src/sorted.c
+INCLUDES = includes
 
-CHECKER_SRCS= src/checker.c src/input_handle1.c src/input_handle2.c src/ft_split.c \
-		src/libft_funcs.c src/init_stack.c src/operations.c src/ops_optimize.c src/sorted.c src/free.c
+MANDATORY_SRCS = src/mandatory/free.c \
+				src/mandatory/ft_split.c \
+				src/mandatory/init_stack.c \
+				src/mandatory/input_handle1.c \
+				src/mandatory/input_handle2.c \
+				src/mandatory/libft_funcs.c \
+				src/mandatory/operations.c \
+				src/mandatory/ops_optimize.c \
+				src/mandatory/push_back.c \
+				src/mandatory/push_swap.c \
+				src/mandatory/push_to_b.c \
+				src/mandatory/sort_stack.c \
+				src/mandatory/sort_utils.c \
+				src/mandatory/sorted.c
 
-PUSH_SWAP_OBJS= $(PUSH_SWAP_SRCS:.c=.o)
+BONUS_SRCS = src/bonus/checker_bonus.c \
+			src/bonus/free_bonus.c \
+			src/bonus/ft_split_bonus.c \
+			src/bonus/init_stack_bonus.c \
+			src/bonus/input_handle1_bonus.c \
+			src/bonus/input_handle2_bonus.c \
+			src/bonus/libft_funcs_bonus.c \
+			src/bonus/operations_bonus.c \
+			src/bonus/sorted_bonus.c
 
-CHECKER_OBJS= $(CHECKER_SRCS:.c=.o)
+MANDATORY_OBJS = $(MANDATORY_SRCS:.c=.o)
 
-NAME=push_swap
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
-CHECKER=checker
+NAME = push_swap
 
+CHECKER = checker
 
 all: $(NAME)
 
-$(NAME): $(PUSH_SWAP_OBJS)
-	$(CC) $(CFLAGS) -I$(INCLUDES) -o $@ $(PUSH_SWAP_OBJS)
+$(NAME): $(MANDATORY_OBJS) $(INCLUDES)/push_swap.h
+	$(CC) $(CFLAGS) -I$(INCLUDES) -o $@ $(MANDATORY_OBJS)
 
-$(CHECKER): $(CHECKER_OBJS)
-	$(CC) $(CFLAGS) -I$(INCLUDES) -o $@ $(CHECKER_OBJS)
+$(CHECKER): $(BONUS_OBJS) $(INCLUDES)/checker_bonus.h
+	$(CC) $(CFLAGS) -I$(INCLUDES) -o $@ $(BONUS_OBJS)
 
 bonus: $(CHECKER)
 
@@ -34,7 +63,7 @@ bonus: $(CHECKER)
 	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 clean:
-	rm -f $(PUSH_SWAP_OBJS) $(CHECKER_OBJS)
+	rm -f $(MANDATORY_OBJS) $(BONUS_OBJS)
 
 fclean: clean
 	rm -f $(NAME) $(CHECKER)

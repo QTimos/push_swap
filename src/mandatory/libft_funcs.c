@@ -6,11 +6,11 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 11:01:27 by hdyani            #+#    #+#             */
-/*   Updated: 2025/12/31 19:31:34 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/05 18:32:14 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 size_t	ft_strlen(const char *str)
 {

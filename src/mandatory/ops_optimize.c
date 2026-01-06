@@ -6,11 +6,11 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 11:22:33 by hdyani            #+#    #+#             */
-/*   Updated: 2025/12/31 19:31:46 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/05 18:38:05 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	remove_last_op(t_oper **ops)
 {

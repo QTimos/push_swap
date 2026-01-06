@@ -6,11 +6,11 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 10:13:42 by hdyani            #+#    #+#             */
-/*   Updated: 2025/12/31 19:31:06 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/05 18:31:51 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	free_char_arr(char **arr, int k)
 {

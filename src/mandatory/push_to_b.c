@@ -6,11 +6,11 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/30 14:32:10 by hdyani            #+#    #+#             */
-/*   Updated: 2026/01/01 17:35:56 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/06 21:03:03 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 int	get_position(t_stack *stack, t_stack *node)
 {
@@ -62,7 +62,7 @@ void	push_first_two(t_stack **a, t_stack **b, int *pushed, t_oper **ops)
 	}
 }
 
-void	push_remaining_elements(t_stack **a, t_stack **b, t_oper **ops,
+void	push_remaining(t_stack **a, t_stack **b, t_oper **ops,
 		t_push_params *par)
 {
 	int	rotations;
@@ -87,7 +87,7 @@ void	push_remaining_elements(t_stack **a, t_stack **b, t_oper **ops,
 			ft_rotate(a, ops, 'a');
 			rotations++;
 			if (rotations % 25 == 0)
-				par->range += (par->max_val - par->min_val) / 8;
+				par->range += (par->max_val - par->min_val) / 8 + 1;
 		}
 	}
 }
@@ -107,7 +107,7 @@ void	push_to_b(t_stack **a, t_stack **b, int size, t_oper **ops)
 	par.range = (par.max_val - par.min_val) / 3;
 	push_first_two(a, b, &pushed, ops);
 	par.pushed = pushed;
-	push_remaining_elements(a, b, ops, &par);
+	push_remaining(a, b, ops, &par);
 	while (stack_size(*a) > 3 && *a)
 		ft_push(a, b, ops, 'b');
 }

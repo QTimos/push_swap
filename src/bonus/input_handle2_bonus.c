@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_handle2.c                                    :+:      :+:    :+:   */
+/*   input_handle2_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 10:55:01 by hdyani            #+#    #+#             */
-/*   Updated: 2026/01/03 12:56:17 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/05 18:25:49 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/checker_bonus.h"
 
 static void	ft_handle_sign(const char *nptr, int *i, int *sign)
 {

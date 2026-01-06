@@ -6,11 +6,11 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/27 11:05:46 by hdyani            #+#    #+#             */
-/*   Updated: 2025/12/31 19:32:10 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/05 18:32:43 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	sort_three(t_stack **s, t_oper **ops)
 {
