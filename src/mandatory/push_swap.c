@@ -6,7 +6,7 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/20 08:42:30 by hdyani            #+#    #+#             */
-/*   Updated: 2026/01/06 20:21:55 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/06 21:31:33 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int	main(int argc, char **argv)
 	t_oper	*o;
 	int		size;
 
+	if (argc < 2)
+		return (0);
 	size = handle_input(argc, argv);
 	if (size == -1 || there_is_duplicates(argv, argc, size))
 		return (write(2, "Error\n", 6), 1);
