@@ -6,10 +6,10 @@
 #    By: hdyani <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/06 20:49:25 by hdyani            #+#    #+#              #
-#    Updated: 2026/01/06 20:49:26 by hdyani           ###   ########.fr        #
+#    Updated: 2026/01/07 10:31:15 by hdyani           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
+#
 CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
@@ -51,15 +51,18 @@ CHECKER = checker
 
 all: $(NAME)
 
-$(NAME): $(MANDATORY_OBJS) $(INCLUDES)/push_swap.h
+$(NAME): $(MANDATORY_OBJS)
 	$(CC) $(CFLAGS) -I$(INCLUDES) -o $@ $(MANDATORY_OBJS)
 
-$(CHECKER): $(BONUS_OBJS) $(INCLUDES)/checker_bonus.h
+$(CHECKER): $(BONUS_OBJS)
 	$(CC) $(CFLAGS) -I$(INCLUDES) -o $@ $(BONUS_OBJS)
 
 bonus: $(CHECKER)
 
-%.o: %.c
+src/mandatory/%.o: src/mandatory/%.c $(INCLUDES)/push_swap.h
+	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
+
+src/bonus/%.o: src/bonus/%.c $(INCLUDES)/checker_bonus.h
 	$(CC) $(CFLAGS) -I$(INCLUDES) -c $< -o $@
 
 clean:
