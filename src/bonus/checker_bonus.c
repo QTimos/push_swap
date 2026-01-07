@@ -6,7 +6,7 @@
 /*   By: hdyani <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 14:50:50 by hdyani            #+#    #+#             */
-/*   Updated: 2026/01/06 20:35:41 by hdyani           ###   ########.fr       */
+/*   Updated: 2026/01/07 17:31:57 by hdyani           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 static int	do_move(char *move, t_stack **a, t_stack **b)
 {
-	if (!ft_strcmp(move, "sa"))
+	if (!ft_strcmp(move, "sa\n"))
 		ft_swap(a, 'a');
-	else if (!ft_strcmp(move, "sb"))
+	else if (!ft_strcmp(move, "sb\n"))
 		ft_swap(b, 'b');
-	else if (!ft_strcmp(move, "ss"))
+	else if (!ft_strcmp(move, "ss\n"))
 		(ft_swap(a, 'a'), ft_swap(b, 'b'));
-	else if (!ft_strcmp(move, "pa"))
+	else if (!ft_strcmp(move, "pa\n"))
 		ft_push(b, a, 'a');
-	else if (!ft_strcmp(move, "pb"))
+	else if (!ft_strcmp(move, "pb\n"))
 		ft_push(a, b, 'b');
-	else if (!ft_strcmp(move, "ra"))
+	else if (!ft_strcmp(move, "ra\n"))
 		ft_rotate(a, 'a');
-	else if (!ft_strcmp(move, "rb"))
+	else if (!ft_strcmp(move, "rb\n"))
 		ft_rotate(b, 'b');
-	else if (!ft_strcmp(move, "rr"))
+	else if (!ft_strcmp(move, "rr\n"))
 		(ft_rotate(a, 'a'), ft_rotate(b, 'b'));
-	else if (!ft_strcmp(move, "rra"))
+	else if (!ft_strcmp(move, "rra\n"))
 		ft_rrotate(a, 'a');
-	else if (!ft_strcmp(move, "rrb"))
+	else if (!ft_strcmp(move, "rrb\n"))
 		ft_rrotate(b, 'b');
-	else if (!ft_strcmp(move, "rrr"))
+	else if (!ft_strcmp(move, "rrr\n"))
 		(ft_rrotate(a, 'a'), ft_rrotate(b, 'b'));
 	else
 		return (0);
@@ -60,7 +60,7 @@ char	*read_line(int fd)
 	char	*result;
 	int		i;
 
-	result = malloc(5);
+	result = malloc(6);
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -75,6 +75,7 @@ char	*read_line(int fd)
 		return (free(result), NULL);
 	if (bytes > 0 && (i < 2 || i > 3))
 		return (free(result), NULL);
+	result[i++] = c;
 	result[i] = 0;
 	return (result);
 }
